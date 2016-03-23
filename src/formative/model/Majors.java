@@ -133,4 +133,19 @@ public class Majors
 			}
 			return nextTopic;
 	}
+	
+	public ArrayList<String> getMathList()
+	{
+		return mathList;
+	}
+	
+	public ArrayList<String> getCompSciList()
+	{
+		return compSciList;
+	}
+	
+	public ArrayList<String> getInfoTechList()
+	{
+		return infoTechList;
+	}
 }

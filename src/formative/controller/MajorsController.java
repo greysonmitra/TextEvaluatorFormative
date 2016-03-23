@@ -1,5 +1,7 @@
 package formative.controller;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import formative.model.*;
@@ -31,4 +33,13 @@ public class MajorsController
 		return response;
 	}
 	
+	public MajorsFrame getBaseFrame()
+	{
+		return baseFrame;
+	}
+	
+	public Majors getMyMajors()
+	{
+		return myMajors;
+	}
 }

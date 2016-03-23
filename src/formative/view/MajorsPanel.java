@@ -15,6 +15,8 @@ public class MajorsPanel extends JPanel
 	private JTextField inputField;
 	private SpringLayout baseLayout;
 	private JLabel infoLabel;
+	private JLabel infoLabel2;
+	private JLabel infoLabel3;
 	private JTextArea displayArea;
 
 	
@@ -24,10 +26,14 @@ public class MajorsPanel extends JPanel
 		
 		baseLayout = new SpringLayout();
 		submitButton = new JButton("Submit");
-		inputField = new JTextField();
-		infoLabel = new JLabel("Enter a number followed by a letter. Use M, C, or I for letters .........");
-		displayArea = new JTextArea();
+		inputField = new JTextField(20);
+		infoLabel = new JLabel("Enter a number followed by a letter. Use M, C, or I for Mathematics majors, Computer Science majors, and Information Technology majors respectively.");
+		infoLabel2 = new JLabel("Enter a number next to the letter; either 1, 2, 3, or 4 for freshman, sophpomore, junio, or senior year respectively.");
+		infoLabel3 = new JLabel("Then, submit your string (Ex: C3).");
+		displayArea = new JTextArea(10,20);
 		
+		
+
 		
 		setupPanel();
 		setupLayout();
@@ -37,18 +43,35 @@ public class MajorsPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
-		this.setBackground(Color.BLUE);
+		this.setBackground(Color.RED);
 		this.add(submitButton);
 		this.add(inputField);
+		this.add(displayArea);
 		this.add(infoLabel);
+		this.add(infoLabel2);
+		this.add(infoLabel3);
 		inputField.setToolTipText("Type here");
 		displayArea.setEnabled(false);
-		this.setPreferredSize(new Dimension(500, 500));
+		this.setPreferredSize(new Dimension(1000, 500));
 	}
 	
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.WEST, inputField, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, displayArea, 36, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, displayArea, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, displayArea, 219, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, displayArea, 471, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, infoLabel2, 275, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -17, SpringLayout.NORTH, infoLabel2);
+		baseLayout.putConstraint(SpringLayout.WEST, infoLabel3, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, infoLabel3, -6, SpringLayout.NORTH, inputField);
+		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, -150, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 5, SpringLayout.SOUTH, inputField);
+		baseLayout.putConstraint(SpringLayout.WEST, submitButton, 0, SpringLayout.WEST, inputField);
+		baseLayout.putConstraint(SpringLayout.WEST, infoLabel2, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, infoLabel, 10, SpringLayout.WEST, this);
+
 	}
 	
 	private void setupListeners()
@@ -59,12 +82,21 @@ public class MajorsPanel extends JPanel
 			{	
 				
 					
-				String userText = inputField.getText(); 
-				displayArea.append("\nUser: " + userText); 
-				inputField.setText(""); 
-				String response = baseController.userToSystem(userText); 
-				displayArea.append("\nSystem: " + response); 
+				String userText = inputField.getText(); 	//Gets the text
+				displayArea.append("\nUser: " + userText); 	//Puts the text and adds a "User" identifier.
+				inputField.setText(""); 					//Deletes the response after it has been inputed. 
+				String response = baseController.userToSystem(userText); 	//Prepares a response.
+				displayArea.append("\nSystem: " + response); 		//Prints the response witha a "System" identifier.
 			}	
 		});
+	}
+	
+	public String grabText(String displayText)
+	{
+		String returnedText = "";
+		
+		returnedText = inputField.getText() + ""; 
+		
+		return returnedText;
 	}
 }

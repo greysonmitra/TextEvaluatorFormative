@@ -101,7 +101,36 @@ public class Majors
 	
 	public String processInput(String currentInput)
 	{
-		
-		return null;
+		String nextTopic = "HI";
+		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
+			
+			
+		switch (randomTopic)
+		{
+		case 0:
+			if(mathMajorChecker(currentInput))
+			{
+				nextTopic = "Quite the interesting meme sir. What else would you like to chat about?";
+			}
+			break;
+		case 1:
+			if(compSciMajorChecker(currentInput))
+			{
+				nextTopic = "Quite the widely debated political topic you have there. Would you like to continue talking about politics?";
+			}
+			break;
+		case 2:
+			if(infoTechMajorChecker(currentInput))
+			{
+				nextTopic = "Cool. What other musical things do you want to talk about?";
+			}
+			break;
+		case 3:
+			nextTopic = "Anything else?!";
+			break;
+		default:
+			break;
+			}
+			return nextTopic;
 	}
 }

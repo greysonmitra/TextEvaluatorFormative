@@ -19,7 +19,7 @@ public class MajorsFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(basePanel); 
-		this.setSize(500,400); 			
+		this.setSize(1000,700); 			
 		this.setTitle("Class Evaluator");
 		this.setResizable(false);       
 		this.setVisible(true);		    

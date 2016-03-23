@@ -1,5 +1,7 @@
 package formative.controller;
 
+import javax.swing.JOptionPane;
+
 import formative.model.*;
 import formative.view.*;
 
@@ -28,4 +30,5 @@ public class MajorsController
 			
 		return response;
 	}
+	
 }

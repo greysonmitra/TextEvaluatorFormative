@@ -57,13 +57,13 @@ public class Majors
 	}
 	
 	
-	public boolean mathMajorChecker(String currentInput)
+	public boolean mathMajorChecker(String currentInput) //Checks the mathMajor arrayList for the input entered by the user. If it matches one of the four options, then it works.
 	{
 		boolean hasMath = false;
 		
 		for(String math:mathList)
 		{
-			if (currentInput.toLowerCase().equals(math.toLowerCase()))
+			if (currentInput.toLowerCase().equals("M1")||currentInput.equals("M2")||currentInput.equals("M3")||currentInput.equals("M4"))
 			{
 				hasMath = true;
 			}
@@ -71,13 +71,13 @@ public class Majors
 		return hasMath;
 	}
 	
-	public boolean compSciMajorChecker(String currentInput)
+	public boolean compSciMajorChecker(String currentInput) //Like mathMajor, but checks the computer science list.
 	{
 		boolean hasComp = false;
 		
 		for(String comp:compSciList)
 		{
-			if (currentInput.toLowerCase().equals(comp.toLowerCase()))
+			if (currentInput.toLowerCase().equals("C1")||currentInput.equals("C2")||currentInput.equals("C3")||currentInput.equals("C4"))
 			{
 				hasComp = true;
 			}
@@ -85,13 +85,13 @@ public class Majors
 		return hasComp;
 	}
 	
-	public boolean infoTechMajorChecker(String currentInput)
+	public boolean infoTechMajorChecker(String currentInput) //Like the other checkers, but for information technology majors.
 	{
 		boolean hasInfo = false;
 		
 		for(String info:infoTechList)
 		{
-			if (currentInput.toLowerCase().equals(info.toLowerCase()))
+			if (currentInput.equals("I1")||currentInput.equals("I2")||currentInput.equals("I3")||currentInput.equals("I4"))
 			{
 				hasInfo = true;
 			}
@@ -102,7 +102,7 @@ public class Majors
 	public String processInput(String currentInput)
 	{
 		String nextTopic = "HI";
-		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
+		int randomTopic = (int) (Math.random() * 5); //Generates random number between 0 through 4.
 			
 			
 		switch (randomTopic)
@@ -110,19 +110,19 @@ public class Majors
 		case 0:
 			if(mathMajorChecker(currentInput))
 			{
-				nextTopic = "Quite the interesting meme sir. What else would you like to chat about?";
+				nextTopic = "Your major is math and you are in ___ year";
 			}
 			break;
 		case 1:
 			if(compSciMajorChecker(currentInput))
 			{
-				nextTopic = "Quite the widely debated political topic you have there. Would you like to continue talking about politics?";
+				nextTopic = "Your major is computer science and you are in ___ year";
 			}
 			break;
 		case 2:
 			if(infoTechMajorChecker(currentInput))
 			{
-				nextTopic = "Cool. What other musical things do you want to talk about?";
+				nextTopic = "Your major is information technology and your are in ___ year";
 			}
 			break;
 		case 3:

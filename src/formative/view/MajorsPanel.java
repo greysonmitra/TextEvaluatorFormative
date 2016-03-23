@@ -14,7 +14,7 @@ public class MajorsPanel extends JPanel
 	private JButton submitButton;
 	private JTextField inputField;
 	private SpringLayout baseLayout;
-	private JLabel infoLabel;
+	private JLabel infoLabel;			//These labels give info to the user on using the program/GUI.
 	private JLabel infoLabel2;
 	private JLabel infoLabel3;
 	private JTextArea displayArea;
@@ -28,7 +28,7 @@ public class MajorsPanel extends JPanel
 		submitButton = new JButton("Submit");
 		inputField = new JTextField(20);
 		infoLabel = new JLabel("Enter a number followed by a letter. Use M, C, or I for Mathematics majors, Computer Science majors, and Information Technology majors respectively.");
-		infoLabel2 = new JLabel("Enter a number next to the letter; either 1, 2, 3, or 4 for freshman, sophpomore, junio, or senior year respectively.");
+		infoLabel2 = new JLabel("Enter a number next to the letter; either 1, 2, 3, or 4 for freshman, sophpomore, junior, or senior year respectively.");
 		infoLabel3 = new JLabel("Then, submit your string (Ex: C3).");
 		displayArea = new JTextArea(10,20);
 		

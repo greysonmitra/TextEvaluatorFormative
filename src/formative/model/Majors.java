@@ -63,7 +63,7 @@ public class Majors
 		
 		for(String math:mathList)
 		{
-			if (currentInput.toLowerCase().equals("M1")||currentInput.equals("M2")||currentInput.equals("M3")||currentInput.equals("M4"))
+			if (currentInput.equalsIgnoreCase("M1")||currentInput.equalsIgnoreCase("M2")||currentInput.equalsIgnoreCase("M3")||currentInput.equalsIgnoreCase("M4"))
 			{
 				hasMath = true;
 			}
@@ -77,7 +77,7 @@ public class Majors
 		
 		for(String comp:compSciList)
 		{
-			if (currentInput.toLowerCase().equals("C1")||currentInput.equals("C2")||currentInput.equals("C3")||currentInput.equals("C4"))
+			if (currentInput.equalsIgnoreCase("C1")||currentInput.equalsIgnoreCase("C2")||currentInput.equalsIgnoreCase("C3")||currentInput.equalsIgnoreCase("C4"))
 			{
 				hasComp = true;
 			}
@@ -91,7 +91,7 @@ public class Majors
 		
 		for(String info:infoTechList)
 		{
-			if (currentInput.equals("I1")||currentInput.equals("I2")||currentInput.equals("I3")||currentInput.equals("I4"))
+			if (currentInput.equalsIgnoreCase("I1")||currentInput.equalsIgnoreCase("I2")||currentInput.equalsIgnoreCase("I3")||currentInput.equalsIgnoreCase("I4"))
 			{
 				hasInfo = true;
 			}
@@ -101,37 +101,46 @@ public class Majors
 	
 	public String processInput(String currentInput)
 	{
-		String nextTopic = "HI";
-		int randomTopic = (int) (Math.random() * 5); //Generates random number between 0 through 4.
+		String nextTopic = "";
+		String major = "";
+		int Year = Integer.parseInt(currentInput.substring(1, 2)); 
+		
+		if(mathMajorChecker(currentInput))
+		{
+			major = "You are a math major";
+		}	
+		else if(compSciMajorChecker(currentInput))
+		{
+			major = "You are a computer science major";
+		}
+		else if(infoTechMajorChecker(currentInput))
+		{
+			major = "You are a information technology major";
+		}
 			
-			
-		switch (randomTopic)
+		switch (Year)
 		{
 		case 0:
-			if(mathMajorChecker(currentInput))
-			{
-				nextTopic = "Your major is math and you are in ___ year";
-			}
+			nextTopic = "and you are in freshman year";
+			
 			break;
 		case 1:
-			if(compSciMajorChecker(currentInput))
-			{
-				nextTopic = "Your major is computer science and you are in ___ year";
-			}
+			nextTopic = "and you are in sophomore year";
+			
 			break;
 		case 2:
-			if(infoTechMajorChecker(currentInput))
-			{
-				nextTopic = "Your major is information technology and your are in ___ year";
-			}
+			nextTopic = "and you are in junior year";
+			
 			break;
 		case 3:
-			nextTopic = "Anything else?!";
+			nextTopic = "and you are in senior year";
 			break;
 		default:
 			break;
 			}
-			return nextTopic;
+		
+		
+			return major + nextTopic;
 	}
 	
 	public ArrayList<String> getMathList()
